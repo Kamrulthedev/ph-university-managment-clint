@@ -3,9 +3,6 @@ import App from "../App";
 import { routesGenerator } from "../utils/routesGenerator";
 import { adminPaths } from "./admin.routes";
 
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",

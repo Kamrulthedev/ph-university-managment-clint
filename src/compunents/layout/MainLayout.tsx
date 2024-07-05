@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import {  Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import SideberItems from "./SideberItems";
 
 const { Header, Content, Footer } = Layout;
@@ -21,7 +21,7 @@ const MainLayout = () => {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          Kamrul ©{new Date().getFullYear()} Created by KH B.D.
         </Footer>
       </Layout>
     </Layout>
