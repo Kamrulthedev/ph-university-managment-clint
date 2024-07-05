@@ -1,9 +1,9 @@
+import FacultyDashboard from "../pages/Faculty/FacultyDashboard";
 
-
-const facultyPaths = [
-    {
-        name:'Dashboard',
-        path:'dashboard',
-        element:
-    }
-]
+export const facultyPaths = [
+  {
+    name: "Dashboard",
+    path: "dashboard",
+    element: <FacultyDashboard></FacultyDashboard>,
+  },
+];
