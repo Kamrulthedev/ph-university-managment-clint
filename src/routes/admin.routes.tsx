@@ -1,16 +1,8 @@
-import { ReactNode } from "react";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
 import CreateAdmin from "../pages/Admin/CreateAdmin";
 import CreateFaculty from "../pages/Admin/CreateFaculty";
 import CreateStaudent from "../pages/Admin/CreateStaudent";
-import { NavLink } from "react-router-dom";
 
-
-type TSideberItem = {
-  key: string;
-  label: ReactNode;
-  children?: TSideberItem[];
-};
 
 export const adminPaths = [
   {
@@ -41,28 +33,28 @@ export const adminPaths = [
 ];
 
 //programatical way side ber itmes
-export const adminSideberItems = adminPaths.reduce(
-  (acc: TSideberItem[], item) => {
-    if (item.path && item.name) {
-      acc.push({
-        key: item.name,
-        label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>,
-      });
-    }
-    if (item.children) {
-      acc.push({
-        key: item.name,
-        label: item.name,
-        children: item.children.map((child) => ({
-          key: child.name,
-          label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>,
-        })),
-      });
-    }
-    return acc;
-  },
-  []
-);
+// export const adminSideberItems = adminPaths.reduce(
+//   (acc: TSideberItem[], item) => {
+//     if (item.path && item.name) {
+//       acc.push({
+//         key: item.name,
+//         label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>,
+//       });
+//     }
+//     if (item.children) {
+//       acc.push({
+//         key: item.name,
+//         label: item.name,
+//         children: item.children.map((child) => ({
+//           key: child.name,
+//           label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>,
+//         })),
+//       });
+//     }
+//     return acc;
+//   },
+//   []
+// );
 
 //programatical way
 // export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
@@ -83,8 +75,8 @@ export const adminSideberItems = adminPaths.reduce(
 //   return acc;
 // }, []);
 
-//Hared Code way
 
+//Hared Code way
 // export const adminPaths = [
 //   {
 //     path: "dashboard",
