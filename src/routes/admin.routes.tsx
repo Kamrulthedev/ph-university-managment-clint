@@ -5,10 +5,6 @@ import CreateFaculty from "../pages/Admin/CreateFaculty";
 import CreateStaudent from "../pages/Admin/CreateStaudent";
 import { NavLink } from "react-router-dom";
 
-type TRoute = {
-  path: string;
-  element: ReactNode;
-};
 
 type TSideberItem = {
   key: string;
@@ -16,7 +12,7 @@ type TSideberItem = {
   children?: TSideberItem[];
 };
 
-const adminPaths = [
+export const adminPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
@@ -69,23 +65,23 @@ export const adminSideberItems = adminPaths.reduce(
 );
 
 //programatical way
-export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
-  if (item.path && item.element) {
-    acc.push({
-      path: item.path,
-      element: item.element,
-    });
-  }
-  if (item.children) {
-    item.children.forEach((child) => {
-      acc.push({
-        path: child.path,
-        element: child.element,
-      });
-    });
-  }
-  return acc;
-}, []);
+// export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
+//   if (item.path && item.element) {
+//     acc.push({
+//       path: item.path,
+//       element: item.element,
+//     });
+//   }
+//   if (item.children) {
+//     item.children.forEach((child) => {
+//       acc.push({
+//         path: child.path,
+//         element: child.element,
+//       });
+//     });
+//   }
+//   return acc;
+// }, []);
 
 //Hared Code way
 
