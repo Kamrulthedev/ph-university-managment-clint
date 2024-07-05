@@ -6,4 +6,14 @@ export const studentPaths = [
     path: "dashboard",
     element: <StudentDashboard></StudentDashboard>,
   },
+  {
+    name: "Student Management",
+    children: [
+      {
+        name: "Offrd Course",
+        path: "create-admin",
+        element: '',
+      },
+    ],
+  },
 ];
