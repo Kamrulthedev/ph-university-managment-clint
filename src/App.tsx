@@ -1,9 +1,12 @@
 import MainLayout from "./compunents/layout/MainLayout";
+import ProtectedRoute from "./compunents/layout/ProtectedRoute";
 
 function App() {
   return (
     <>
-      <MainLayout></MainLayout>
+      <ProtectedRoute>
+        <MainLayout></MainLayout>
+      </ProtectedRoute>
     </>
   );
 }
