@@ -4,6 +4,9 @@ import { sideberItemsGenerators } from "../../utils/sideBerItemsGenerator";
 import { adminPaths } from "../../routes/admin.routes";
 import { facultyPaths } from "../../routes/faculty.routes";
 import { studentPaths } from "../../routes/student.routes";
+import { useAppSelector } from "../../redux/features/hooks";
+import { useCurrentUser } from "../../redux/features/auth/authSlice";
+
 
 const UserRole = {
   ADMIN: "admin",
@@ -12,11 +15,11 @@ const UserRole = {
 };
 
 const SideberItems = () => {
+const user = useAppSelector(useCurrentUser)
 
-  const role = "faculty";
   let sideberItems;
 
-  switch (role) {
+  switch (user!.role) {
     case UserRole.ADMIN:
       sideberItems = sideberItemsGenerators(adminPaths, UserRole.ADMIN);
       break;
