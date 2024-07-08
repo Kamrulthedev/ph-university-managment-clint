@@ -9,7 +9,7 @@ const AcademicSemester = () => {
         <div>
             <h1>This is Academic Semester</h1>
         </div>
-    );
+    ); 
 };
 
-export default AcademicSemester;
+export default AcademicSemester; 

@@ -30,6 +30,7 @@ const Login = () => {
       navigate(`/${user.role}/dashboard`);
     } catch (err) {
       toast.error("Somting Want Wrong", {id: toastId, duration: 2000});
+      console.log(err)
     }
   };
 
