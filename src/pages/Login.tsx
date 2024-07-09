@@ -6,6 +6,7 @@ import { setUser, TUser } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import PHFrom from "../compunents/form/PHFrom";
 
 const Login = () => {
   const dispaths = useAppDispatch();
@@ -35,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <form style={{ textAlign: "center" }} onSubmit={handleSubmit(onSubmit)}>
+    <PHFrom style={{ textAlign: "center" }} onSubmit={onSubmit}>
       <div>
         <label htmlFor="id">ID: </label>
         <input type="text" id="id" {...register("id")} />
@@ -45,7 +46,7 @@ const Login = () => {
         <input type="password" id="password" {...register("password")} />
       </div>
       <Button htmlType="submit">Login</Button>
-    </form>
+    </PHFrom>
   );
 };
 
