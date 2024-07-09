@@ -1,7 +1,15 @@
 import { Input } from "antd";
-import { Controller } from "react-hook-form";
+import { Control, Controller, FieldValues } from "react-hook-form";
 
-const PHInput = ({ label, type, name, control }) => {
+
+type TPropos = {
+    type: string,
+    name: string,
+    label?: string 
+    control?: Control<FieldValues> | undefined
+}
+
+const PHInput = ({ label, type, name, control } : TPropos) => {
   return (
     <div style={{ marginBottom: '20px'}}>
       {label ? <label style={{marginBottom: '10px', fontSize: 24}} htmlFor={name}>{label}</label> : null}

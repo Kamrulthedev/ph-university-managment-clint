@@ -37,8 +37,8 @@ const Login = () => {
   return (
     <Row justify="center" align="middle" style={{height: '100vh'}}>
       <PHFrom onSubmit={onSubmit}>
-        <PHInput type="text" name="id" label="ID:"></PHInput>
-        <PHInput type="text" name="password" label="Password:"></PHInput>
+        <PHInput type="id" name="id" label="ID:"></PHInput>
+        <PHInput type="password" name="password" label="Password:"></PHInput>
         <Button htmlType="submit">Login</Button>
       </PHFrom>
     </Row>
