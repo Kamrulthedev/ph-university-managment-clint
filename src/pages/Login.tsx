@@ -26,16 +26,16 @@ const Login = () => {
       const res = await Login(userInfo).unwrap();
       const user = verifyToken(res.data.accessToken) as TUser;
       dispaths(setUser({ user: user, token: res.data.accessToken }));
-      toast.success("Logged in", {id: toastId, duration: 2000})
+      toast.success("Logged in", { id: toastId, duration: 2000 });
       navigate(`/${user.role}/dashboard`);
     } catch (err) {
-      toast.error("Somting Want Wrong", {id: toastId, duration: 2000});
-      console.log(err)
+      toast.error("Somting Want Wrong", { id: toastId, duration: 2000 });
+      console.log(err);
     }
   };
 
   return (
-    <Row justify="center" align="middle" style={{height: '100vh'}}>
+    <Row justify="center" align="middle" style={{ height: "100vh" }}>
       <PHFrom onSubmit={onSubmit}>
         <PHInput type="id" name="id" label="ID:"></PHInput>
         <PHInput type="password" name="password" label="Password:"></PHInput>
