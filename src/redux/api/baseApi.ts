@@ -1,7 +1,14 @@
-import { BaseQueryApi, BaseQueryFn, createApi, FetchArgs, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import {
+  BaseQueryApi,
+  BaseQueryFn,
+  createApi,
+  FetchArgs,
+  fetchBaseQuery,
+} from "@reduxjs/toolkit/query/react";
 import { RootState } from "../features/store";
 import { logout, setUser } from "../features/auth/authSlice";
 import { DefaultOptionType } from "antd/es/select";
+import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:5000/api/v1",
@@ -15,12 +22,21 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-const BaseQueryWithRefrashToken: BaseQueryFn<FetchArgs, BaseQueryApi, DefaultOptionType> = async (args, api, extraOptions): Promise<any> => {
+const BaseQueryWithRefrashToken: BaseQueryFn<
+  FetchArgs,
+  BaseQueryApi,
+  DefaultOptionType
+> = async (args, api, extraOptions): Promise<any> => {
   let result = await baseQuery(args, api, extraOptions);
+
+  if (result?.error?.status === 404) {
+    toast.error("User Not Found !");
+  }
 
   if (result.error?.status === 401) {
     //Sending Refresh Token
     console.log("Sending Refrash Token");
+
 
     const res = await fetch("http://localhost:5000/api/v1/auth/refresh-token", {
       method: "POST",
