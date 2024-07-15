@@ -1,6 +1,5 @@
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import PHFrom from "../../../compunents/form/PHFrom";
-import PHInput from "../../../compunents/form/PHInput";
 import { Button, Col, Flex } from "antd";
 import PHSelect from "../../../compunents/form/PHSelect";
 
@@ -13,8 +12,7 @@ const CreateAcademicSemester = () => {
     <Flex justify="center" align="center">
       <Col span={6}>
         <PHFrom onSubmit={onsubmit}>
-          <PHInput type="text" name="name" label="Name:"></PHInput>
-          <PHSelect label="Name"></PHSelect>
+          <PHSelect label="Name" name="select"></PHSelect>
           <Button htmlType="submit">Submit</Button>
         </PHFrom>
       </Col>
