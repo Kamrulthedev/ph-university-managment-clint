@@ -4,7 +4,7 @@ import { Controller } from "react-hook-form";
 type PHSelectPropos = {
   label: string;
   name: string;
-  options: { value: string; label: string; disabled: boolean }[];
+  options: { value: string; label: string; disabled?: boolean }[];
 };
 
 const PHSelect = ({ label, name, options }: PHSelectPropos) => {
