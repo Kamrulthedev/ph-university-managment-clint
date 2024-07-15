@@ -7,4 +7,4 @@ const CreateAcademicSemester = () => {
     );
 };
 
-export default CreateAcademicSemester;
+export default CreateAcademicSemester; 
