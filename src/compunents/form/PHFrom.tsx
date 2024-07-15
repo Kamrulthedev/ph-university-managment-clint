@@ -1,3 +1,4 @@
+import { Form } from "antd";
 import { ReactNode } from "react";
 import {
   FieldValues,
@@ -11,21 +12,15 @@ type TForm = {
   children: ReactNode;
 };
 
-
 const PHFrom = ({ onSubmit, children }: TForm) => {
-
-
   const methods = useForm();
   return (
     <FormProvider {...methods}>
-      <div>
-        <form
-          style={{ textAlign: "center" }}
-          onSubmit={methods.handleSubmit(onSubmit)}
-        >
-          {children}
-        </form>
-      </div>
+      <Form
+        style={{ textAlign: "center" }}
+        onFinish={methods.handleSubmit(onSubmit)}>
+        {children}
+      </Form>
     </FormProvider>
   );
 };
