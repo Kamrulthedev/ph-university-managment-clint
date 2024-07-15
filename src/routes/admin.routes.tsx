@@ -1,4 +1,8 @@
+import AcademicDepertment from "../pages/Admin/AcademicManagment/AcademicDepertment";
+import AcademicFaculty from "../pages/Admin/AcademicManagment/AcademicFaculty";
 import AcademicSemester from "../pages/Admin/AcademicManagment/AcademicSemester";
+import CreateAcademicDepertment from "../pages/Admin/AcademicManagment/CreateAcademicDepertment";
+import CreateAcademicFaculty from "../pages/Admin/AcademicManagment/CreateAcademicFaculty";
 import CreateAcademicSemester from "../pages/Admin/AcademicManagment/CreateAcademicSemester";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
 import CreateAdmin from "../pages/Admin/CreateAdmin";
@@ -27,22 +31,22 @@ export const adminPaths = [
       {
         name: "Create A. Facutly",
         path: "create-academic-faculty",
-        element: '',
+        element: <CreateAcademicFaculty></CreateAcademicFaculty>,
       },
       {
         name: "Academic Facutly",
         path: "academic-faculty",
-        element: '',
+        element:<AcademicFaculty></AcademicFaculty>,
       },
       {
         name: "Create A. Depertment",
         path: "create-academic-depertment",
-        element: '',
+        element: <CreateAcademicDepertment></CreateAcademicDepertment>,
       },
       {
         name: "Academic Depertment",
         path: "academic-depertment",
-        element: '',
+        element: <AcademicDepertment></AcademicDepertment>,
       },
     ],
   },
