@@ -11,16 +11,11 @@ type TPropos = {
 const PHInput = ({ label, type, name, control }: TPropos) => {
   return (
     <div style={{ marginBottom: "20px" }}>
-      {label ? (
-        <label style={{ marginBottom: "10px", fontSize: 16 }} htmlFor={name}>
-          {label}
-        </label>
-      ) : null}
       <Controller
         name={name}
         control={control}
         render={({ field }) => (
-          <Form.Item>
+          <Form.Item label={label}>
             <Input {...field} type={type} id={name} />
           </Form.Item>
         )}

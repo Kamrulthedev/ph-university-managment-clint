@@ -16,7 +16,7 @@ const PHFrom = ({ onSubmit, children }: TForm) => {
   const methods = useForm();
   return (
     <FormProvider {...methods}>
-      <Form
+      <Form layout="vertical"
         style={{ textAlign: "center" }}
         onFinish={methods.handleSubmit(onSubmit)}
       >

@@ -2,6 +2,7 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import PHFrom from "../../../compunents/form/PHFrom";
 import PHInput from "../../../compunents/form/PHInput";
 import { Button, Col, Flex } from "antd";
+import PHSelect from "../../../compunents/form/PHSelect";
 
 const CreateAcademicSemester = () => {
   const onsubmit: SubmitHandler<FieldValues> = (data) => {
@@ -13,7 +14,7 @@ const CreateAcademicSemester = () => {
       <Col span={6}>
         <PHFrom onSubmit={onsubmit}>
           <PHInput type="text" name="name" label="Name:"></PHInput>
-          <PHInput type="text" name="year" label="Year:"></PHInput>
+          <PHSelect label="Name"></PHSelect>
           <Button htmlType="submit">Submit</Button>
         </PHFrom>
       </Col>
