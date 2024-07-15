@@ -1,4 +1,4 @@
-import { Input } from "antd";
+import { Form, Input } from "antd";
 import { Control, Controller, FieldValues } from "react-hook-form";
 
 type TPropos = {
@@ -19,7 +19,11 @@ const PHInput = ({ label, type, name, control }: TPropos) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => <Input {...field} type={type} id={name} />}
+        render={({ field }) => (
+          <Form.Item>
+            <Input {...field} type={type} id={name} />
+          </Form.Item>
+        )}
       />
     </div>
   );

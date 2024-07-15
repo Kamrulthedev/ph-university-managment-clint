@@ -18,7 +18,8 @@ const PHFrom = ({ onSubmit, children }: TForm) => {
     <FormProvider {...methods}>
       <Form
         style={{ textAlign: "center" }}
-        onFinish={methods.handleSubmit(onSubmit)}>
+        onFinish={methods.handleSubmit(onSubmit)}
+      >
         {children}
       </Form>
     </FormProvider>
