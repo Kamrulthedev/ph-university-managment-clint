@@ -7,17 +7,27 @@ import {
   useForm,
 } from "react-hook-form";
 
+type TFormConfig = {
+  resolver?: any;
+};
+
 type TForm = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
-  resolver: any
-};
+} & TFormConfig;
 
-const PHFrom = ({ onSubmit, children }: TForm) => {
-  const methods = useForm();
+const PHFrom = ({ onSubmit, children, resolver }: TForm) => {
+  const formConfig: TFormConfig = {};
+
+  if (resolver) {
+    formConfig["resolver"] = resolver;
+  }
+  const methods = useForm({ resolver });
+  
   return (
     <FormProvider {...methods}>
-      <Form layout="vertical"
+      <Form
+        layout="vertical"
         style={{ textAlign: "center" }}
         onFinish={methods.handleSubmit(onSubmit)}
       >
