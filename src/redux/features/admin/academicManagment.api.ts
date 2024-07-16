@@ -1,20 +1,23 @@
 import { baseApi } from "../../api/baseApi";
-export interface Semester {
-  id: string;
-  name: string;
-  startDate: string;
-  endDate: string;
-}
+
 const academicManagmentApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getAllSemesters: builder.query<Semester[], void>({
+    getAllSemesters: builder.query({
       query: () => ({
         url: "/academic-semesters",
         method: "GET",
       }),
     }),
+    addAcademicSemester: builder.mutation({
+      query: (data) => ({
+        url: "/academic-semesters/create-academic-semester",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
-  overrideExisting: false, 
+  overrideExisting: false,
 });
 
-export const { useGetAllSemestersQuery } = academicManagmentApi;
+export const { useGetAllSemestersQuery, useAddAcademicSemesterMutation } =
+  academicManagmentApi;
