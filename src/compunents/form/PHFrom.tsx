@@ -10,6 +10,7 @@ import {
 type TForm = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
+  resolver: any
 };
 
 const PHFrom = ({ onSubmit, children }: TForm) => {
