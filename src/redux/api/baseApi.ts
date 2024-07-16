@@ -29,7 +29,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   BaseQueryApi,
   DefaultOptionType
 > = async (args, api, extraOptions): Promise<any> => {
-  let result = await baseQuery(args, api, extraOptions);
+  let result = await baseQuery(args, api, extraOptions) as any;
 
   if (result.error?.status === 404) {
     toast.error(result.error.data.message);
@@ -37,8 +37,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 
   if (result.error?.status === 401) {
     // Sending Refresh Token
-    console.log("Sending Refresh Token");
-
     const refreshResult = await fetch(
       "http://localhost:5000/api/v1/auth/refresh-token",
       {
