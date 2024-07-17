@@ -10,7 +10,17 @@ interface DataType {
 
 const AcademicSemester = () => {
   const { data: semesterData } = useGetAllSemestersQuery(undefined);
-  console.log("Fetched Data:", semesterData);
+
+  const tableData = semesterData?.data?.map(
+    ({ _id, code, name, startMonth, endMonth, year }) => ({
+      _id,
+      code,
+      name,
+      startMonth,
+      endMonth,
+      year,
+    })
+  );
 
   const columns: TableColumnsType<DataType> = [
     {
@@ -41,31 +51,18 @@ const AcademicSemester = () => {
           ],
         },
       ],
-      onFilter: (value, record) => record.name.indexOf(value as string) === 0,
-      sorter: (a, b) => a.name.length - b.name.length,
-      sortDirections: ["descend"],
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
+      title: "Year",
+      dataIndex: "year",
     },
     {
-      title: "Address",
-      dataIndex: "address",
-      filters: [
-        {
-          text: "London",
-          value: "London",
-        },
-        {
-          text: "New York",
-          value: "New York",
-        },
-      ],
-      onFilter: (value, record) =>
-        record.address.indexOf(value as string) === 0,
+      title: "Start Month",
+      dataIndex: "startMonth",
+    },
+    {
+      title: "End Month",
+      dataIndex: "endMonth",
     },
   ];
 
@@ -81,7 +78,7 @@ const AcademicSemester = () => {
   return (
     <Table
       columns={columns}
-      // dataSource={tableData}
+      dataSource={tableData}
       onChange={onChange}
       showSorterTooltip={{ target: "sorter-icon" }}
     />

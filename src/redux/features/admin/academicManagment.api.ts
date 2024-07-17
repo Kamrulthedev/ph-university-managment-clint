@@ -1,3 +1,4 @@
+import { TResponce } from "../../../types/global";
 import { baseApi } from "../../api/baseApi";
 
 const academicManagmentApi = baseApi.injectEndpoints({
@@ -7,8 +8,8 @@ const academicManagmentApi = baseApi.injectEndpoints({
         url: "/academic-semesters",
         method: "GET",
       }),
-      transformResponse: (response) => {
-        console.log(response.data);
+      transformResponse: (response: TResponce) => {
+        console.log(response);
         return {
           data: response.data,
           meta: response.meta,
