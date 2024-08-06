@@ -20,9 +20,8 @@ export type TResponce<T> = {
   data?: T;
   error: TError;
   meta?: Tmeta;
-  success:boolean,
-  message: string
+  success: boolean;
+  message: string;
 };
 
-
-export type TResponceRedux<T> = TResponce<T> & BaseQueryApi
+export type TResponceRedux<T> = TResponce<T> & BaseQueryApi;
